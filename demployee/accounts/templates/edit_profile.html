@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}profile{% endblock %}
+{% block content %}
+  <form method="POST">
+  	{% csrf_token %}
+  	
+  	<label for="address">Address:</label>
+  	<textarea name="address">{{user.address}}</textarea>
+  	<label for="DOB">DOB:</label>
+  	<input type="date" name="DOB" value="{{user.DOB|date:'Y-m-d'}}">
+  	<button type="submit">Submit</button>
+  	<button type="reset">Reset</button>
+  	<a href="{% url 'view_profile' %}">cancel</a>
+  </form>
+{% endblock %}

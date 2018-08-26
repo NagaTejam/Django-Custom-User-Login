@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}edit details{% endblock %}
+{% block content %}
+{% if emp %}
+<p>Role</p>
+    <form method="post">
+     {% csrf_token %}<!--
+<div class="form-check-inline">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" name="staff" value="">Staff
+  </label>
+</div><br>
+<div class="form-check-inline">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" name="admin" value="">admin
+  </label>
+</div>
+
+    <br>-->{{ form.as_p }}
+    <button type="submit" class="btn btn-warning">update</button>
+    <a href="{% url 'admin' %}">cancel</a>
+    </form>
+{% endif %}  
+{% endblock %}

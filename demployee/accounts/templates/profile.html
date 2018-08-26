@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}profile{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+  {% if user.is_admin %}
+  <p>welcome</p>
+  {% else %}
+  <p>username : {{ user }}</p>
+  <p>firstname : {{ user.first_name }}</p>
+  <p>lastname : {{ user.last_name }}</p>
+  <p>DOB : {{user.DOB}}</p>
+  <p>address : {{user.address}}</p>
+  <p>{{sess}}</p>
+<!--  <p>
+    <a href="{% url 'edit_profile' %}">Edit details</a>
+  </p>-->
+    <p>
+    <a href="{% url 'change_password' %}">Change password</a>
+  </p>
+  {% endif %}
+{% endif %}
+{% endblock %}
